@@ -13,7 +13,10 @@
   },
   "plugins": ["react", "prettier"],
   "rules": {
-    "prettier/prettier": ["error", { "singleQuote": true, "parser": "flow" }],
+    "prettier/prettier": [
+      "error",
+      { "singleQuote": true, "parser": "flow", "endOfLine": "auto" }
+    ],
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": "off",
     // "no-console": ["off", { "allow": ["warn", "error"] }],
@@ -21,6 +24,8 @@
     "no-use-before-define": ["error", { "functions": false }],
     "react/prop-types": "off",
     "no-nested-ternary": "off",
-    "no-underscore-dangle": "off"
+    "no-underscore-dangle": "off",
+    "react/jsx-props-no-spreading": "off",
+    "import/prefer-default-export": "off"
   }
 }

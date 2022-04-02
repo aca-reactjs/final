@@ -4,7 +4,7 @@ import './App.css';
 import Layout from './components/Layout/Layout';
 import theme from './components/theme/Theme';
 import { ProvideAuth } from './hooks/useAuth';
-import Home from './pages/Home';
+import Home from './pages/Home/Home';
 import Signup from './pages/Signup/Signup';
 
 function App() {

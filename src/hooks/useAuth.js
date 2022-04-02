@@ -29,12 +29,6 @@ function useProvideAuth() {
   //       return response.user;
   //     });
 
-  /**
-   *
-   * @param {String} email - email of the user
-   * @param {String} password  - password of the user
-   * @returns - singed up user
-   */
   const signup = async (email, password) => {
     const response = await createUserWithEmailAndPassword(
       firebaseAuthRef,
