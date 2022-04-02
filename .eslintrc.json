@@ -16,6 +16,11 @@
     "prettier/prettier": ["error", { "singleQuote": true, "parser": "flow" }],
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": "off",
-    "no-console": ["error", { "allow": ["warn", "error"] }]
+    // "no-console": ["off", { "allow": ["warn", "error"] }],
+    // "no-console": "off",
+    "no-use-before-define": ["error", { "functions": false }],
+    "react/prop-types": "off",
+    "no-nested-ternary": "off",
+    "no-underscore-dangle": "off"
   }
 }
