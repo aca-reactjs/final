@@ -1,13 +1,21 @@
-import { Button } from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
+import Layout from './components/Layout/Layout';
+import theme from './components/theme/Theme';
+import Home from './pages/Home';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Button>Hello</Button>
-      </header>
-    </div>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+          </Route>
+        </Routes>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
 
