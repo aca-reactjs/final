@@ -39,7 +39,7 @@ export default function SignIn() {
 
         setResponse({ type: 'success', message: 'registration is done' });
 
-        navigate(paths.projects);
+        navigate(`/${paths.projects}`);
       } catch (error) {
         const message = getErrorMessage(error);
 
@@ -50,7 +50,7 @@ export default function SignIn() {
 
   useEffect(() => {
     if (user) {
-      navigate(paths.home);
+      navigate(`${paths.home}`);
     }
   }, [user]);
 

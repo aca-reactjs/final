@@ -1,8 +1,13 @@
-import { Box } from '@mui/material';
 import { useEffect, useState } from 'react';
+import Box from '@mui/material/Box';
+
 import ProjectCard from '../../components/ProjectCard/ProjectCard';
-import { useAuth } from '../../hooks/useAuth';
+import EmptyScreen from '../../components/EmptyScreen/EmptyScreen';
+import LoadingScreen from '../../components/LoadingScreen/LoadingScreen';
 import { getAllProjectByUserId } from '../../Service/firestore';
+import { useAuth } from '../../hooks/useAuth';
+
+import empty from '../../assets/empty.png';
 
 export default function Projects() {
   const { user } = useAuth();
@@ -15,6 +20,14 @@ export default function Projects() {
       });
     }
   }, [user]);
+
+  if (projects === null) {
+    return <LoadingScreen />;
+  }
+
+  if (projects && projects.length === 0) {
+    return <EmptyScreen img={empty} title="no projects" />;
+  }
 
   return (
     <Box
