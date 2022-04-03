@@ -4,10 +4,11 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { CardHeader } from '@mui/material';
+import { generateRandomColor } from '../../utils';
 
 export default function ProjectCard({ name, description, subject }) {
   return (
-    <Card sx={{ maxWidth: 230 }}>
+    <Card sx={{ maxWidth: 230, bgcolor: generateRandomColor() }}>
       <CardHeader title={name} subheader={subject} />
       <CardContent>
         <Typography variant="body2" color="text.secondary">

@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 
 import Layout from './components/Layout/Layout';
-import theme from './components/theme/Theme';
+import theme from './styles/theme/Theme';
 import { ProvideAuth } from './hooks/useAuth';
 import { paths } from './constants/paths';
 
