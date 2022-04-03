@@ -5,4 +5,6 @@ export const paths = {
   singleProject: 'projects/:id',
   signIn: 'signin',
   signUp: 'signup',
+  notFound: '404',
+  addStudent: 'projects/:id/add-student',
 };
