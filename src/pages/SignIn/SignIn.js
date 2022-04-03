@@ -7,6 +7,7 @@ import { useFormik } from 'formik';
 import { useAuth } from '../../hooks/useAuth';
 import RegisterForm from '../../components/Form/RegisterForm';
 import { getErrorMessage } from '../../utils';
+import { paths } from '../../constants/paths';
 
 const validationSchema = yup.object({
   email: yup
@@ -38,7 +39,7 @@ export default function SignIn() {
 
         setResponse({ type: 'success', message: 'registration is done' });
 
-        navigate('/');
+        navigate(paths.projects);
       } catch (error) {
         const message = getErrorMessage(error);
 
@@ -49,7 +50,7 @@ export default function SignIn() {
 
   useEffect(() => {
     if (user) {
-      navigate('/');
+      navigate(paths.home);
     }
   }, [user]);
 

@@ -7,16 +7,17 @@ import SchoolIcon from '@mui/icons-material/School';
 
 import { useAuth } from '../../hooks/useAuth';
 import AccountMenu from '../AccountMenu/AccountMenu';
+import { paths } from '../../constants/paths';
 
 export default function NavBar() {
   const navigate = useNavigate();
   const { user } = useAuth();
 
   const handleSignupClick = () => {
-    navigate('/signup');
+    navigate(paths.signUp);
   };
   const handleSigninClick = () => {
-    navigate('/signin');
+    navigate(paths.signIn);
   };
 
   return (
@@ -24,7 +25,7 @@ export default function NavBar() {
       <AppBar position="static">
         <Toolbar>
           <Link
-            to="/"
+            to={paths.home}
             style={{ flexGrow: 1, cursor: 'pointer', color: 'white' }}
           >
             <SchoolIcon />

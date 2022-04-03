@@ -3,7 +3,7 @@ import { lightBlue } from '@mui/material/colors';
 import { useAuth } from '../../hooks/useAuth';
 
 const welcomeMessage = {
-  auth: 'welcome back',
+  auth: 'welcome back!',
   guest: 'welcome to our site',
 };
 

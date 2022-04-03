@@ -16,6 +16,7 @@ import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import AddIcon from '@mui/icons-material/Add';
 
 import { useAuth } from '../../hooks/useAuth';
+import { paths } from '../../constants/paths';
 
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -92,7 +93,7 @@ export default function AccountMenu() {
         </MenuItem>
         <Divider />
         <Link
-          to="/projects"
+          to={paths.projects}
           style={{ textDecoration: 'none', color: 'inherit' }}
         >
           <MenuItem>
@@ -104,7 +105,7 @@ export default function AccountMenu() {
         </Link>
 
         <Link
-          to="/projects/create"
+          to={paths.addProject}
           style={{ textDecoration: 'none', color: 'inherit' }}
         >
           <MenuItem>
