@@ -1,12 +1,23 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
 import Menu from '@mui/material/Menu';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import MenuIcon from '@mui/icons-material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import Divider from '@mui/material/Divider';
+import Settings from '@mui/icons-material/Settings';
+import Logout from '@mui/icons-material/Logout';
+import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import AddIcon from '@mui/icons-material/Add';
 
-export default function AccountMenu({ menuItems }) {
+import { useAuth } from '../../hooks/useAuth';
+
+export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -15,6 +26,13 @@ export default function AccountMenu({ menuItems }) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const { signout } = useAuth();
+
+  const handleLogOut = () => {
+    signout();
+  };
+
   return (
     <>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
@@ -66,7 +84,49 @@ export default function AccountMenu({ menuItems }) {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        {menuItems}
+        <MenuItem>
+          <ListItemIcon>
+            <PersonOutlineIcon fontSize="small" />
+          </ListItemIcon>
+          Profile
+        </MenuItem>
+        <Divider />
+        <Link
+          to="/projects"
+          style={{ textDecoration: 'none', color: 'inherit' }}
+        >
+          <MenuItem>
+            <ListItemIcon>
+              <BusinessCenterIcon fontSize="small" />
+            </ListItemIcon>
+            Projects
+          </MenuItem>
+        </Link>
+
+        <Link
+          to="/projects/create"
+          style={{ textDecoration: 'none', color: 'inherit' }}
+        >
+          <MenuItem>
+            <ListItemIcon>
+              <AddIcon fontSize="small" />
+            </ListItemIcon>
+            Add Project
+          </MenuItem>
+        </Link>
+        <Divider />
+        <MenuItem>
+          <ListItemIcon>
+            <Settings fontSize="small" />
+          </ListItemIcon>
+          Settings
+        </MenuItem>
+        <MenuItem onClick={handleLogOut}>
+          <ListItemIcon>
+            <Logout fontSize="small" />
+          </ListItemIcon>
+          Logout
+        </MenuItem>
       </Menu>
     </>
   );
