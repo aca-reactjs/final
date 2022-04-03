@@ -1,10 +1,19 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import SchoolIcon from '@mui/icons-material/School';
+import MenuItem from '@mui/material/MenuItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import Divider from '@mui/material/Divider';
+import Settings from '@mui/icons-material/Settings';
+import Logout from '@mui/icons-material/Logout';
+import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+
 import { useAuth } from '../../hooks/useAuth';
+import AccountMenu from '../AccountMenu/AccountMenu';
 
 export default function NavBar() {
   const navigate = useNavigate();
@@ -21,17 +30,49 @@ export default function NavBar() {
     signout();
   };
 
+  const menuItems = (
+    <>
+      <MenuItem>
+        <ListItemIcon>
+          <PersonOutlineIcon fontSize="small" />
+        </ListItemIcon>
+        Profile
+      </MenuItem>
+      <MenuItem>
+        <ListItemIcon>
+          <BusinessCenterIcon fontSize="small" />
+        </ListItemIcon>
+        Projects
+      </MenuItem>
+      <Divider />
+      <MenuItem>
+        <ListItemIcon>
+          <Settings fontSize="small" />
+        </ListItemIcon>
+        Settings
+      </MenuItem>
+      <MenuItem onClick={handleLogOut}>
+        <ListItemIcon>
+          <Logout fontSize="small" />
+        </ListItemIcon>
+        Logout
+      </MenuItem>
+    </>
+  );
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Logo
-          </Typography>
+          <Link
+            to="/"
+            style={{ flexGrow: 1, cursor: 'pointer', color: 'white' }}
+          >
+            <SchoolIcon />
+          </Link>
+
           {user ? (
-            <Button color="inherit" onClick={handleLogOut}>
-              Log Out
-            </Button>
+            <AccountMenu menuItems={menuItems} />
           ) : (
             <>
               <Button color="inherit" onClick={handleSigninClick}>

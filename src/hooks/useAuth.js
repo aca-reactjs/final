@@ -4,6 +4,7 @@ import {
   getAuth,
   onAuthStateChanged,
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth';
 
@@ -23,11 +24,16 @@ export const useAuth = () => useContext(authContext);
 function useProvideAuth() {
   const [user, setUser] = useState(null);
 
-  //   const signin = (email, password) =>
-  //     signInWithEmailAndPassword(email, password).then((response) => {
-  //       setUser(response.user);
-  //       return response.user;
-  //     });
+  const signin = async (email, password) => {
+    const response = await signInWithEmailAndPassword(
+      firebaseAuthRef,
+      email,
+      password
+    );
+
+    setUser(response.user);
+    return response.user;
+  };
 
   const signup = async (email, password) => {
     const response = await createUserWithEmailAndPassword(
@@ -37,12 +43,12 @@ function useProvideAuth() {
     );
 
     setUser(response.user);
-
     return response;
   };
 
   const signout = async () => {
     await signOut(firebaseAuthRef);
+
     setUser(false);
   };
 
@@ -80,7 +86,7 @@ function useProvideAuth() {
     user,
     signup,
     signout,
-    // signin,
+    signin,
     // sendPasswordResetEmail,
     // confirmPasswordReset,
   };

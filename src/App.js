@@ -5,6 +5,7 @@ import Layout from './components/Layout/Layout';
 import theme from './components/theme/Theme';
 import { ProvideAuth } from './hooks/useAuth';
 import Home from './pages/Home/Home';
+import SignIn from './pages/SignIn/SignIn';
 import Signup from './pages/Signup/Signup';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
               <Route path="signup" element={<Signup />} />
+              <Route path="signin" element={<SignIn />} />
             </Route>
           </Routes>
         </ThemeProvider>
