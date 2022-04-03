@@ -38,12 +38,14 @@ export default function NavBar() {
         </ListItemIcon>
         Profile
       </MenuItem>
-      <MenuItem>
-        <ListItemIcon>
-          <BusinessCenterIcon fontSize="small" />
-        </ListItemIcon>
-        Projects
-      </MenuItem>
+      <Link to="/projects" style={{ textDecoration: 'none', color: 'inherit' }}>
+        <MenuItem>
+          <ListItemIcon>
+            <BusinessCenterIcon fontSize="small" />
+          </ListItemIcon>
+          Projects
+        </MenuItem>
+      </Link>
       <Divider />
       <MenuItem>
         <ListItemIcon>
@@ -71,7 +73,7 @@ export default function NavBar() {
             <SchoolIcon />
           </Link>
 
-          {user ? (
+          {user === null ? null : user ? (
             <AccountMenu menuItems={menuItems} />
           ) : (
             <>
