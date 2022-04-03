@@ -10,7 +10,6 @@ import { paths } from './constants/paths';
 import './App.css';
 import RequireAuth from './components/RequireAuth/RequireAuth';
 import LoadingScreen from './components/LoadingScreen/LoadingScreen';
-import NotFound from './pages/NotFound/NotFound';
 
 const Home = lazy(() => import('./pages/Home/Home'));
 const Projects = lazy(() => import('./pages/Projects/Projects'));
@@ -19,6 +18,7 @@ const Signup = lazy(() => import('./pages/Signup/Signup'));
 const AddProject = lazy(() => import('./pages/AddProject/AddProject'));
 const AddStudent = lazy(() => import('./pages/AddStudent/AddStudent'));
 const SingleProject = lazy(() => import('./pages/SingleProject/SingleProject'));
+const NotFound = lazy(() => import('./pages/NotFound/NotFound'));
 
 function App() {
   return (
